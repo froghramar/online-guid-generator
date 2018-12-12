@@ -34,14 +34,20 @@
             </div>
             <div class="mui-checkbox">
                 <label>
+                    <input type="checkbox" v-model="guidGeneratorConfig.representAsArray" checked>
+                    Array
+                </label>
+                <label>
                     <input type="checkbox" v-model="guidGeneratorConfig.includeHyphens" checked>
                     Hyphens
                 </label>
-            </div>
-            <div class="mui-checkbox">
                 <label>
                     <input type="checkbox" v-model="guidGeneratorConfig.upperCase" checked>
                     Upper Case
+                </label>
+                <label v-if="!guidGeneratorConfig.representAsArray">
+                    <input type="checkbox" v-model="guidGeneratorConfig.commaSeparated" checked>
+                    Comma Separated
                 </label>
             </div>
         </form>

@@ -14,3 +14,7 @@
 .ogg-form-field > input[type=number] {
     width: 100px;
 }
+
+.mui-checkbox > label:not(:first-child) {
+    margin-left: 15px;
+}

@@ -29,14 +29,16 @@
             textAreaResult: null,
             numberOfGUIDs: 1,
             guidGeneratorConfig: {
+                commaSeparated: false,
                 includeHyphens: true,
+                representAsArray: false,
                 upperCase: false
             }
         },
         methods: {
             generateBtnClick: function() {
                 const guidList = guidGenerator.getGuidList(this.numberOfGUIDs, this.guidGeneratorConfig);
-                this.textAreaResult = guidList.join(', ');
+                this.textAreaResult = this.guidGeneratorConfig.representAsArray ? JSON.stringify(guidList): guidList.join(this.guidGeneratorConfig.commaSeparated ? ',\n' : '\n');
             }
         }
     })
