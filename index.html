@@ -32,6 +32,12 @@
                     placeholder="1 to 1000"
                     type="number">
             </div>
+            <div class="mui-checkbox">
+                <label>
+                    <input type="checkbox" v-model="guidGeneratorConfig.includeHyphens" checked>
+                    Hyphens
+                </label>
+            </div>
         </form>
         <button
             v-on:click="generateBtnClick"

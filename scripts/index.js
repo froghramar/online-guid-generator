@@ -1,16 +1,18 @@
 (function(){
 
     const guidGenerator = (function () {
-        function getGUid() {
-            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        function getGUid(guidGeneratorConfig) {
+            const guidParts = ['xxxxxxxx', 'xxxx', '4xxx', 'yxxx', 'xxxxxxxxxxxx'];
+            const guidFrame = guidParts.join(guidGeneratorConfig.includeHyphens ? '-' : '');
+            return guidFrame.replace(/[xy]/g, function(c) {
                 const r = Math.random() * 16 | 0, v = (c === 'x') ? r : (r & 0x3 | 0x8);
                 return v.toString(16);
             });
         }
 
-        function getGuidList(numberOfGUIDs) {
+        function getGuidList(numberOfGUIDs, guidGeneratorConfig) {
             return Array.from(Array(numberOfGUIDs).keys()).map(function () {
-                return getGUid();
+                return getGUid(guidGeneratorConfig);
             });
         }
 
@@ -23,11 +25,16 @@
         el: '#ogg-app',
         data: {
             textAreaResult: null,
-            numberOfGUIDs: 1
+            numberOfGUIDs: 1,
+            guidGeneratorConfig: {
+                includeHyphens: true
+            }
         },
         methods: {
             generateBtnClick: function() {
-                const guidList = guidGenerator.getGuidList(this.numberOfGUIDs);
+                const guidList = guidGenerator.getGuidList(this.numberOfGUIDs, {
+                    includeHyphens: this.guidGeneratorConfig.includeHyphens
+                });
                 this.textAreaResult = guidList.join(', ');
             }
         }
