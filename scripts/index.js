@@ -5,17 +5,16 @@
             return v.toString(16);
         });
     }
-    
-    function generateBtnClick() {
-        updateTextAreaContent(getGUid());
-    }
-    
-    function updateTextAreaContent(content) {
-        var resultAreaElement = document.querySelector('#resultArea');
-        if (resultAreaElement) {
-            resultAreaElement.value = content;
-        }
-    }
 
-    window.generateBtnClick = generateBtnClick;
+    const oggApp = new Vue({
+        el: '#ogg-app',
+        data: {
+            textAreaResult: null
+        },
+        methods: {
+            generateBtnClick: function() {
+                this.textAreaResult = getGUid();
+            }
+        }
+    })
 })(window);
