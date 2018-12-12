@@ -1,4 +1,4 @@
-(function(){
+(function(document){
 
     const guidGenerator = (function () {
         function getGUid(guidGeneratorConfig) {
@@ -39,7 +39,12 @@
             generateBtnClick: function() {
                 const guidList = guidGenerator.getGuidList(this.numberOfGUIDs, this.guidGeneratorConfig);
                 this.textAreaResult = this.guidGeneratorConfig.representAsArray ? JSON.stringify(guidList): guidList.join(this.guidGeneratorConfig.commaSeparated ? ',\n' : '\n');
+            },
+            copyToClipBoard: function () {
+                const resultTextArea = document.querySelector('#textArea');
+                resultTextArea.select();
+                document.execCommand('copy');
             }
         }
     })
-})();
+})(document);

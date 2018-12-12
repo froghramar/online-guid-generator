@@ -23,7 +23,7 @@
         <h1 class="mui--text-center">
             Online GUID Generator
         </h1>
-        <form class="ogg-form">
+        <form class="ogg-form ogg-custom-width">
             <div class="ogg-form-field">
                 <label>Number Of GUIDs</label>
                 <input
@@ -57,9 +57,19 @@
             Generate
         </button>
         <textarea
+            spellcheck="false"
+            id="textArea"
             v-model="textAreaResult"
-            class="result-area">
+            class="result-area ogg-custom-width">
         </textarea>
+        <div class="align-center ogg-custom-width">
+            <a
+                v-on:click="copyToClipBoard"
+                href="#"
+                id="copy-to-clipboard">
+                Copy to clipboard
+            </a>
+        </div>
     </div>
 </div>
 <script src="scripts/index.js"></script>

@@ -1,12 +1,10 @@
 .result-area {
-    width: 400px;
     height: 150px;
     display: block;
     margin: 15px auto;
 }
 
 .ogg-form {
-    width: 400px;
     display: block;
     margin: 15px auto;
 }
@@ -17,4 +15,13 @@
 
 .mui-checkbox > label:not(:first-child) {
     margin-left: 15px;
+}
+
+.ogg-custom-width {
+    width: 400px;
+}
+
+#copy-to-clipboard {
+    display: block;
+    text-align: right;
 }
