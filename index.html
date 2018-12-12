@@ -38,6 +38,12 @@
                     Hyphens
                 </label>
             </div>
+            <div class="mui-checkbox">
+                <label>
+                    <input type="checkbox" v-model="guidGeneratorConfig.upperCase" checked>
+                    Upper Case
+                </label>
+            </div>
         </form>
         <button
             v-on:click="generateBtnClick"

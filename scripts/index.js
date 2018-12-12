@@ -6,7 +6,9 @@
             const guidFrame = guidParts.join(guidGeneratorConfig.includeHyphens ? '-' : '');
             return guidFrame.replace(/[xy]/g, function(c) {
                 const r = Math.random() * 16 | 0, v = (c === 'x') ? r : (r & 0x3 | 0x8);
-                return v.toString(16);
+                return guidGeneratorConfig.upperCase ? v.toString(16).replace(/[abcdef]/g, function(c) {
+                    return c.toUpperCase();
+                }) : v.toString(16);
             });
         }
 
@@ -27,14 +29,13 @@
             textAreaResult: null,
             numberOfGUIDs: 1,
             guidGeneratorConfig: {
-                includeHyphens: true
+                includeHyphens: true,
+                upperCase: false
             }
         },
         methods: {
             generateBtnClick: function() {
-                const guidList = guidGenerator.getGuidList(this.numberOfGUIDs, {
-                    includeHyphens: this.guidGeneratorConfig.includeHyphens
-                });
+                const guidList = guidGenerator.getGuidList(this.numberOfGUIDs, this.guidGeneratorConfig);
                 this.textAreaResult = guidList.join(', ');
             }
         }
