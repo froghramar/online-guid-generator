@@ -4,3 +4,13 @@
     display: block;
     margin: 15px auto;
 }
+
+.ogg-form {
+    width: 400px;
+    display: block;
+    margin: 15px auto;
+}
+
+.ogg-form-field > input[type=number] {
+    width: 100px;
+}

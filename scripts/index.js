@@ -6,14 +6,22 @@
         });
     }
 
+    function getGuidList(numberOfGUIDs) {
+        return Array.from(Array(numberOfGUIDs).keys()).map(function () {
+            return getGUid();
+        });
+    }
+
     const oggApp = new Vue({
         el: '#ogg-app',
         data: {
-            textAreaResult: null
+            textAreaResult: null,
+            numberOfGUIDs: 1
         },
         methods: {
             generateBtnClick: function() {
-                this.textAreaResult = getGUid();
+                const guidList = getGuidList(this.numberOfGUIDs);
+                this.textAreaResult = guidList.join(', ');
             }
         }
     })

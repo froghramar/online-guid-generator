@@ -23,6 +23,16 @@
         <h1 class="mui--text-center">
             Online GUID Generator
         </h1>
+        <form class="ogg-form">
+            <div class="ogg-form-field">
+                <label>Number Of GUIDs</label>
+                <input
+                    id="numberOfGUIDs"
+                    v-model.number="numberOfGUIDs"
+                    placeholder="1 to 1000"
+                    type="number">
+            </div>
+        </form>
         <button
             v-on:click="generateBtnClick"
             class="mui-btn mui-btn--primary mui-btn--raised align-center">
